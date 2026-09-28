@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101722" />
+    <meta name="description" content="A tide-bound beach rescue in The Last Menagerie." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23101722'/%3E%3Cpath d='M14 13h9v30h19v8H14zm22 0h9l7 10 7-10h9v38h-9V28l-7 10-7-10v23h-9z' fill='%23efa75e'/%3E%3C/svg%3E" />
+    <title>The Last Menagerie — Low Water</title>
+  </head>
+  <body>
+    <main id="game" aria-label="The Last Menagerie game">
+      <div class="topbar">
+        <div class="brand"><span class="brand-mark">LM</span><span>THE LAST MENAGERIE</span></div>
+        <div class="topbar-actions">
+          <div class="chapter" id="room-banner">FIELD LOG <span>01</span> / LOW WATER</div>
+          <button class="room-action hidden" id="leave-room" type="button">LEAVE ROOM</button>
+        </div>
+      </div>
+      <section class="lobby" id="lobby">
+        <div class="lobby-card">
+          <div class="eyebrow">A CO-OP FIELD MISSION · 01</div>
+          <h2>THE SUNKEN<br />CUT</h2>
+          <p>On an open beach, the ranger crosses a fallen tree to recover the tide case. The stranded surveyor keeps a rescued youngling safe while repairing the beacon. Bring everyone to extraction before high water.</p>
+          <p class="role-note">First into the room is the ranger; the second player is the surveyor.</p>
+          <label class="callsign-label" for="player-name">CALLSIGN <span>OPTIONAL</span></label>
+          <input class="callsign-input" id="player-name" maxlength="18" placeholder="RANGER" autocomplete="nickname" />
+          <button class="primary-button" id="create-room">CREATE PRIVATE ROOM <span>→</span></button>
+          <form id="join-form">
+            <label for="invite-code">HAVE AN INVITE CODE?</label>
+            <div class="join-row">
+              <input id="invite-code" name="code" maxlength="6" placeholder="6-CHARACTER CODE" autocomplete="off" required />
+              <button class="join-button" type="submit" aria-label="Join room">JOIN</button>
+            </div>
+          </form>
+          <button class="solo-button" id="solo-button">or enter a solo practice run</button>
+          <div class="lobby-status" id="lobby-status" aria-live="polite">Private rooms hold up to four players.</div>
+        </div>
+        <div class="lobby-version">PROTOTYPE BUILD 001 <span>·</span> INVITE-ONLY CO-OP</div>
+      </section>
+      <section class="mission">
+        <div class="eyebrow">CURRENT OBJECTIVE</div>
+        <h1 id="objective">Recover the field case</h1>
+        <p id="mission-copy">Cross the ravine and recover the surveyor's field case.</p>
+        <div class="objective-guide" id="objective-guide">
+          <div class="guide-compass" aria-hidden="true">
+            <span>N</span>
+            <span class="guide-needle" id="objective-needle">↑</span>
+            <span>S</span>
+          </div>
+          <div class="guide-readout">
+            <span class="eyebrow" id="objective-target">FIELD CASE</span>
+            <strong><span id="objective-direction">—</span><span id="objective-distance">—</span></strong>
+          </div>
+        </div>
+      </section>
+      <section class="team-status hidden" id="team-status" aria-label="Team status" aria-live="polite">
+        <div class="eyebrow">CREW STATUS</div>
+        <div class="team-member">
+          <span class="team-role ranger-role">R</span>
+          <span class="team-name" id="ranger-name">RANGER</span>
+          <strong id="ranger-status">Recovering tide case</strong>
+        </div>
+        <div class="team-member">
+          <span class="team-role surveyor-role">S</span>
+          <span class="team-name" id="surveyor-name">SURVEYOR</span>
+          <strong id="surveyor-status">Repairing beacon</strong>
+        </div>
+      </section>
+      <div class="event-card" id="event-card">
+        <div class="event-icon">↟</div>
+        <div><div class="eyebrow" id="event-label">TIDAL ANOMALY</div><strong><span id="event-state">SURGE IN</span> <span id="countdown">00:18</span></strong></div>
+      </div>
+      <div class="center-message" id="center-message" aria-live="polite"></div>
+      <div class="interact" id="interact" aria-live="polite"><kbd>E</kbd><span id="interaction-label">RESCUE SURVEYOR</span></div>
+      <section class="mission-overlay hidden" id="mission-overlay" aria-live="assertive">
+        <div class="mission-overlay-card">
+          <div class="eyebrow" id="overlay-eyebrow">FIELD LOG 01</div>
+          <h2 id="overlay-title">THE TIDE TOOK THE CUT</h2>
+          <p id="overlay-copy">The team is pulled back to the canyon entrance.</p>
+          <button class="primary-button hidden" id="replay-button">RUN IT AGAIN <span>↻</span></button>
+        </div>
+      </section>
+      <div class="bottom-hud">
+        <div class="controls"><span><kbd>W A S D</kbd> MOVE</span><span><kbd>SPACE</kbd> JUMP ONTO THE TREE</span><span><kbd>SHIFT</kbd> SPRINT</span><span><kbd>E</kbd> INTERACT</span><span>KEEP THE YOUNGLING INSIDE THE BEACON RING</span></div>
+        <div class="location"><span class="location-dot"></span> THE SUNKEN CUT · NORTH BEACH <span class="coord">38° 14′ N</span></div>
+      </div>
+      <div class="crosshair" aria-hidden="true"></div>
+      <div class="fade" aria-hidden="true"></div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

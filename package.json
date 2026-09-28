@@ -1,0 +1,25 @@
+{
+  "name": "the-last-menagerie",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:server": "node server/index.mjs",
+    "build": "tsc -b && vite build",
+    "test": "node --test",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@colyseus/core": "^0.18.17",
+    "@colyseus/ws-transport": "^0.18.4",
+    "@dimforge/rapier3d-compat": "^0.15.0",
+    "colyseus.js": "^0.16.22",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.170.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.1"
+  }
+}
